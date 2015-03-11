@@ -6,10 +6,12 @@
 //  Copyright (c) 2014年 CC. All rights reserved.
 //
 
-#import "CCRequest.h"
+#import "CCRequestDefinations.h"
 #import <UIKit/UIKit.h>
 
 @class CCClient;
+
+typedef void(^CCClientCompleteBlock) (id result);
 
 
 
@@ -35,9 +37,9 @@
     // if NO the request may ignore errors without alerts, the default value is YES
     BOOL _needAlert;
     
-    // if YES the request may automatically add user token parameter for the request, the default value is YES
+    // 当 _needLogin = YES, 则当前请求可以被视为需要登录，CCEngine中存储有登录信息会自动添加，the default value is YES
     BOOL _needLogin;
-    // while _needLogin is YES and _canSkipLogin is YES, the reuqest may add user token parameter only if user token exists
+    // 当 _needLogin = YES && _canSkipLogin = YES, 则当前请求可以被视为需要登录，也可以无需登录，CCEngine中存储有登录信息会自动添加，如果没有，请求也依然会执行且当作匿名访问
     BOOL _canSkipLogin;
     
     BOOL _skipLog;
@@ -68,6 +70,8 @@
  *	@return	return a BSClient object
  */
 - (id)initWithDelegate:(id)delegate;
+
+- (id)initWithBlock:(CCClientCompleteBlock)block;
 
 /**
  *	Copyright © 2013 CC Inc. All rights reserved.
