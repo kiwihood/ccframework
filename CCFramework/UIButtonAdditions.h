@@ -11,10 +11,9 @@
 
 @interface UIButton (Additions)
 
-+ (UIButton*)btnWithTitle:(NSString*)title
-                      wid:(CGFloat)wid
-                      hei:(CGFloat)height
-                    image:(UIImage*)img
-                   himage:(UIImage*)himg;
+/**
+ * 返回指定背景色的UIButton，默认高度为35
+ */
++ (UIButton*)roundedRectButtonWithTitle:(NSString*)title color:(UIColor*)color raduis:(CGFloat)raduis;
 
 @end

@@ -19,10 +19,17 @@
  */
 + (NSDate*)dateFromString:(NSString*)uiDate formatter:(NSString*)formatter;
 
+
 /**
- * 将1970时间戳转换为一种常用的时间格式
+ * 将1970时间戳转换为一种常用的时间格式，例：刚刚、5秒前、5分钟前、7:35、2月5日 7:35、2014-2-5 7:35
  */
-+ (NSString*)stringFromTimeInterval:(NSTimeInterval)interval;
++ (NSString*)simpleTextFromTimeInterval:(NSTimeInterval)interval;
+
+/**
+ * 将1970时间戳转换为一种常用的时间格式，例：刚刚、5秒前、5分钟前、7:35、2月5日、2014年2月5日
+ */
++ (NSString*)simpleShortTextFromTimeInterval:(NSTimeInterval)interval;
+
 
 /**
  * 将NSDate实例以任意日期格式转换为字符串
